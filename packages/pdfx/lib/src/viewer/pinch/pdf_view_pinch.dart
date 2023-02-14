@@ -33,6 +33,7 @@ class PdfViewPinch extends StatefulWidget {
     this.scrollDirection = Axis.vertical,
     this.padding = 10,
     this.backgroundDecoration = const BoxDecoration(),
+    this.boundaryMargin = EdgeInsets.zero,
     Key? key,
   }) : super(key: key);
 
@@ -60,6 +61,8 @@ class PdfViewPinch extends StatefulWidget {
   /// Pdf widget page background decoration
   final BoxDecoration? backgroundDecoration;
 
+  final EdgeInsets boundaryMargin;
+  
   /// Default page builder
   @override
   State<PdfViewPinch> createState() => _PdfViewPinchState();
@@ -523,7 +526,7 @@ class _PdfViewPinchState extends State<PdfViewPinch>
           scrollControls: InteractiveViewerScrollControls.scrollPans,
           constrained: false,
           alignPanAxis: false,
-          boundaryMargin: EdgeInsets.zero,
+          boundaryMargin: widget.boundaryMargin,
           minScale: 1.0,
           maxScale: 20,
           panEnabled: true,
